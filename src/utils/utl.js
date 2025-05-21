@@ -1,1 +1,1 @@
-export const BACKEND_SERVER_URL = "http://38.242.230.126:4001"
+export const BACKEND_SERVER_URL = "https://movix.cradle.services"
