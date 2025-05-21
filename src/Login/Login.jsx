@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import { useNavigate } from "react-router";
 import "./Login.css";
+import { BACKEND_SERVER_URL } from "../utils/utl";
 const Login = ({
   handleLogin,
   handleChangePass,
@@ -25,7 +26,7 @@ const Login = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:4001/signup/login", {
+    const res = await fetch(BACKEND_SERVER_URL + "/signup/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

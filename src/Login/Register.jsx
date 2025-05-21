@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import "./Login.css";
 import React, { useState } from "react";
 import axios from "axios";
+import { BACKEND_SERVER_URL } from "../utils/utl";
 function Register() {
   const [data, setData] = useState({
     email: "",
@@ -26,7 +27,7 @@ function Register() {
         securityQuestionAnswer: data.securityQuestionAnswer,
       };
       try {
-        const res = await fetch("http://localhost:4001/signup/register", {
+        const res = await fetch(BACKEND_SERVER_URL + "/signup/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(obj),
@@ -48,7 +49,7 @@ function Register() {
   };
   const verify = async () => {
     try {
-      const res = await axios.post("http://localhost:4001/signup/sendOtp", {
+      const res = await axios.post(BACKEND_SERVER_URL + "/signup/sendOtp", {
         email: data.email,
       });
       if (res.status === 200) {
@@ -61,7 +62,7 @@ function Register() {
   };
   const checkUser = async () => {
     try {
-      const res = await axios.post("http://localhost:4001/signup/checkUser", {
+      const res = await axios.post(BACKEND_SERVER_URL + "/signup/checkUser", {
         otp: parseInt(data.otp),
       });
       if (res.status === 200) {

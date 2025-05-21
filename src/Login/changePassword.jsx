@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import React, { useState } from "react";
 import "./Login.css";
+import { BACKEND_SERVER_URL } from "../utils/utl";
 const ChangePassword = () => {
   const [data, setData] = useState({
     email: "",
@@ -26,7 +27,7 @@ const ChangePassword = () => {
       securityQuestion: data.securityQuestion,
       securityQuestionAnswer: data.securityQuestionAnswer,
     };
-    const res = await fetch("http://localhost:4001/signup/changePass", {
+    const res = await fetch(BACKEND_SERVER_URL + "/signup/changePass", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
