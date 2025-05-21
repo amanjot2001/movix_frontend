@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import "./Login.css";
 import { BACKEND_SERVER_URL } from "../utils/utl";
+import { Link } from "react-router-dom";
 const Login = ({
   handleLogin,
   handleChangePass,
@@ -85,11 +86,11 @@ const Login = ({
             />
           </div>
           <button type="submit">Login</button>
-          <a href="/changePass" onClick={onHandleChangePassword}>
+          <Link to="/changePass" onClick={onHandleChangePassword}>
             Forgot Password
-          </a>
+          </Link>
           <br />
-          <a href="/register">Register</a>
+          <Link to="/register">Register</Link>
         </form>
       </div>
     </div>
